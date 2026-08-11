@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMS&rsquo; Hairline — Raw Vietnamese Hair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFBFA;
+    --ink:#141414;
+    --smoke:#8C8C87;
+    --line:rgba(20,20,20,0.13);
+    --line-soft:rgba(20,20,20,0.07);
+    --hush:#F3F1EE;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-weight:300;line-height:1.65;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  .wrap{max-width:1320px;margin:0 auto;padding:0 48px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
+  .eyebrow{font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--smoke);font-weight:400}
+
+  /* announcement */
+  .announce{border-bottom:1px solid var(--line-soft)}
+  .announce .wrap{display:flex;justify-content:center;gap:2.5rem;padding:11px 48px;flex-wrap:wrap;
+    font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--smoke)}
+  .announce span{position:relative}
+  .announce span+span::before{content:"";position:absolute;left:-1.25rem;top:50%;width:2px;height:2px;
+    border-radius:50%;background:var(--smoke);transform:translateY(-50%)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;background:rgba(252,251,250,0.88);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:26px;padding-bottom:26px}
+  .brand{font-family:var(--sans);font-weight:400;font-size:1.02rem;letter-spacing:.42em;text-transform:uppercase}
+  nav{display:flex;gap:2.4rem}
+  nav a{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;position:relative;padding-bottom:3px;color:var(--ink)}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .35s ease}
+  nav a:hover::after,nav a:focus-visible::after{width:100%}
+
+  /* hero */
+  .hero{position:relative;height:88vh;min-height:600px;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(252,251,250,0) 40%,rgba(252,251,250,0.55) 100%),
+      radial-gradient(120% 120% at 68% 26%,#efede9 0%,#e4e1db 45%,#d7d3cc 100%);
+    border-bottom:1px solid var(--line-soft);overflow:hidden}
+  .hero .htag{position:absolute;left:48px;top:40px;font-size:.6rem;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--smoke)}
+
+  .hero-inner{padding:0 48px 74px;max-width:1320px;margin:0 auto;width:100%}
+  .hero .eyebrow{margin-bottom:24px}
+  .hero h1{font-size:clamp(2.8rem,6.4vw,5.6rem);letter-spacing:-0.005em}
+  .hero p{font-family:var(--sans);font-size:.98rem;letter-spacing:.04em;margin-top:22px;color:#33322f;max-width:44ch}
+  .hero .btn{margin-top:38px}
+
+  .btn{display:inline-block;font-family:var(--sans);font-size:.66rem;letter-spacing:.28em;
+    text-transform:uppercase;font-weight:400;padding:15px 36px;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);transition:background .3s ease,color .3s ease}
+  .btn:hover,.btn:focus-visible{background:transparent;color:var(--ink)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover,.btn.ghost:focus-visible{background:var(--ink);color:var(--paper)}
+
+  /* section shells */
+  section{border-bottom:1px solid var(--line-soft)}
+  .sec-head{text-align:center;padding:96px 0 8px}
+  .sec-head .eyebrow{margin-bottom:20px}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,2.9rem)}
+  .sec-head p{font-family:var(--sans);font-size:.9rem;color:var(--smoke);margin-top:16px;max-width:44ch;margin-left:auto;margin-right:auto}
+
+  /* featured collection */
+  .collection{padding-bottom:100px}
+  .col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:60px}
+  .card{display:block}
+  .card .shot{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--hush)}
+  .card .shot .fill{position:absolute;inset:0;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+  .card:nth-child(1) .shot .fill{background:radial-gradient(120% 100% at 40% 25%,#f1efec,#e3e0da 60%,#d5d1c9)}
+  .card:nth-child(2) .shot .fill{background:radial-gradient(120% 100% at 55% 30%,#eeece8,#ded9d2 60%,#cfcabf)}
+  .card:nth-child(3) .shot .fill{background:radial-gradient(120% 100% at 45% 20%,#f2f0ed,#e6e2dc 60%,#d9d4cc)}
+  .card:hover .shot .fill{transform:scale(1.045)}
+  .card .shot .plc{position:absolute;left:20px;top:18px;font-size:.56rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--smoke)}
+  .card h3{font-size:1.5rem;margin-top:24px}
+  .card .desc{font-family:var(--sans);font-size:.82rem;color:#4a4a46;margin-top:8px;max-width:34ch}
+  .card .view{display:inline-block;margin-top:16px;font-size:.62rem;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+  /* the raw standard band */
+  .standard{background:var(--hush)}
+  .standard .wrap{text-align:center;padding:110px 48px}
+  .standard .eyebrow{margin-bottom:30px}
+  .standard p{font-family:var(--serif);font-size:clamp(1.8rem,4.2vw,3.1rem);line-height:1.22;
+    max-width:22ch;margin:0 auto}
+  .standard .rule{width:40px;height:1px;background:var(--ink);margin:36px auto 0;opacity:.4}
+
+  /* art of exceptional hair */
+  .craft{padding-bottom:40px}
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1px solid var(--line)}
+  .pillar{padding:44px 28px 48px 0;border-right:1px solid var(--line-soft)}
+  .pillar:last-child{border-right:none;padding-right:0}
+  .pillar:not(:first-child){padding-left:28px}
+  .pillar .pn{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--smoke);margin-bottom:20px}
+  .pillar h3{font-size:1.35rem;margin-bottom:14px}
+  .pillar p{font-family:var(--sans);font-size:.82rem;color:#4a4a46}
+  .craft .closer{text-align:center;font-family:var(--serif);font-style:italic;font-size:1.5rem;
+    padding:70px 0 96px}
+
+  /* our promise */
+  .promise{background:var(--ink);color:var(--paper)}
+  .promise .wrap{padding:100px 48px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center}
+  .promise .eyebrow{color:rgba(252,251,250,0.5);margin-bottom:26px}
+  .promise h2{font-size:clamp(1.9rem,3.4vw,2.7rem);max-width:16ch}
+  .promise .lead{font-family:var(--sans);font-size:.9rem;color:rgba(252,251,250,0.72);margin-top:22px;max-width:46ch}
+  .promise ul{list-style:none;border-top:1px solid rgba(252,251,250,0.18)}
+  .promise li{padding:18px 0;border-bottom:1px solid rgba(252,251,250,0.1);
+    font-family:var(--serif);font-size:1.35rem;display:flex;align-items:baseline;gap:18px}
+  .promise li .i{font-family:var(--sans);font-size:.6rem;letter-spacing:.2em;color:rgba(252,251,250,0.5);
+    font-style:normal}
+
+  /* footer */
+  footer{background:var(--paper)}
+  .foot-cta{text-align:center;padding:96px 48px;border-bottom:1px solid var(--line-soft)}
+  .foot-cta .eyebrow{margin-bottom:20px}
+  .foot-cta h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:18px}
+  .foot-cta p{font-family:var(--sans);font-size:.88rem;color:#4a4a46;max-width:42ch;margin:0 auto 34px}
+  .field{display:flex;max-width:440px;margin:0 auto;border:1px solid var(--ink)}
+  .field input{flex:1;border:none;background:transparent;padding:15px 18px;font-family:var(--sans);
+    font-size:.85rem;font-weight:300;color:var(--ink)}
+  .field input::placeholder{color:var(--smoke)}
+  .field input:focus{outline:none}
+  .field button{border:none;background:var(--ink);color:var(--paper);font-family:var(--sans);
+    font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;padding:0 26px;cursor:pointer;transition:opacity .3s}
+  .field button:hover{opacity:.82}
+
+  .foot-main .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding-top:64px;padding-bottom:48px}
+  .foot-main .brandcol .fb{font-family:var(--sans);font-weight:400;font-size:1rem;letter-spacing:.38em;
+    text-transform:uppercase}
+  .foot-main .brandcol p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#4a4a46;margin-top:16px;max-width:26ch}
+  .foot-col h4{font-family:var(--sans);font-weight:400;font-size:.6rem;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--smoke);margin-bottom:20px}
+  .foot-col a,.foot-col .li{display:block;font-size:.82rem;color:#3a3a37;padding:7px 0}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-base{border-top:1px solid var(--line-soft)}
+  .foot-base .wrap{display:flex;justify-content:space-between;padding-top:22px;padding-bottom:30px;
+    font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);flex-wrap:wrap;gap:14px}
+
+  /* motion */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* responsive */
+  @media(max-width:980px){
+    .wrap,.hero-inner{padding-left:24px;padding-right:24px}
+    .announce .wrap,.standard .wrap,.promise .wrap,.foot-cta{padding-left:24px;padding-right:24px}
+    nav{display:none}
+    .hero .htag{left:24px;right:24px}
+    .col-grid{grid-template-columns:1fr;gap:48px}
+    .pillars{grid-template-columns:1fr 1fr}
+    .pillar{border-right:none;border-bottom:1px solid var(--line-soft);padding:32px 0}
+    .pillar:nth-child(odd){padding-right:20px;border-right:1px solid var(--line-soft)}
+    .pillar:nth-child(even){padding-left:20px}
+    .pillar:not(:first-child){padding-left:0}
+    .pillar:nth-child(even){padding-left:20px}
+    .promise .wrap{grid-template-columns:1fr;gap:40px}
+    .foot-main .wrap{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .foot-main .wrap{grid-template-columns:1fr}
+    .pillars{grid-template-columns:1fr}
+    .pillar,.pillar:nth-child(odd){border-right:none;padding:26px 0}
+  }
+</style>
+</head>
+<body>
+
+  <div class="announce">
+    <div class="wrap">
+      <span>Worldwide shipping</span>
+      <span>Single donor · naturally preserved</span>
+      <span>Shipped via DHL, UPS &amp; FedEx</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="wrap">
+      <div class="brand">EMS&rsquo; Hairline</div>
+      <nav>
+        <a href="#collection">Shop</a>
+        <a href="#standard">The Raw Standard</a>
+        <a href="#craft">Craft</a>
+        <a href="#promise">Our Promise</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="htag">The Signature Collection</span>
+    <div class="hero-inner">
+      <div class="eyebrow reveal">EMS&rsquo; Hairline</div>
+      <h1 class="reveal">Raw Vietnamese Hair</h1>
+      <p class="reveal">Single donor. Naturally preserved. Crafted without compromise.</p>
+      <a href="#collection" class="btn reveal">Explore the Collection</a>
+    </div>
+  </section>
+
+  <!-- FEATURED COLLECTION -->
+  <section id="collection" class="collection">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow reveal">Featured Collection</div>
+        <h2 class="reveal">The Signature line</h2>
+        <p class="reveal">Three pieces, one standard — raw Vietnamese hair with naturally aligned cuticles, preserved from source.</p>
+      </div>
+      <div class="col-grid">
+        <a href="#" class="card reveal">
+          <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
+          <h3>The Signature Bundle</h3>
+          <p class="desc">Single donor raw Vietnamese hair — effortless movement, exceptional longevity, endlessly versatile.</p>
+          <span class="view">View</span>
+        </a>
+        <a href="#" class="card reveal">
+          <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
+          <h3>The Signature HD Frontal</h3>
+          <p class="desc">Ultra-thin HD lace and signature raw hair for a seamless, undetectable finish.</p>
+          <span class="view">View</span>
+        </a>
+        <a href="#" class="card reveal">
+          <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
+          <h3>The Signature HD Closure</h3>
+          <p class="desc">Understated luxury — HD lace with carefully selected raw hair and a beautifully natural finish.</p>
+          <span class="view">View</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RAW STANDARD -->
+  <section id="standard" class="standard">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Raw Standard</div>
+      <p class="reveal">Single donor. Naturally preserved. Cuticle aligned.</p>
+      <div class="rule"></div>
+    </div>
+  </section>
+
+  <!-- THE ART OF EXCEPTIONAL HAIR -->
+  <section id="craft" class="craft">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow reveal">The Art of Exceptional Hair</div>
+        <h2 class="reveal">Considered at every step</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <div class="pn">i.</div><h3>Single Donor</h3>
+          <p>Every bundle begins with one carefully selected donor, preserving natural consistency in texture, strength and movement from root to tip.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pn">ii.</div><h3>Preserved at Source</h3>
+          <p>Never factory processed. Never mass stored. Carefully preserved from source to maintain the hair&rsquo;s natural integrity.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pn">iii.</div><h3>Hand Wefted</h3>
+          <p>Each bundle is individually hand wefted by skilled artisans using traditional craftsmanship.</p>
+        </div>
+        <div class="pillar reveal">
+          <div class="pn">iv.</div><h3>Individually Inspected</h3>
+          <p>Every bundle is individually inspected before being carefully packaged and prepared for its journey to you.</p>
+        </div>
+      </div>
+      <div class="closer reveal">Exceptional hair begins at the source.</div>
+    </div>
+  </section>
+
+  <!-- OUR PROMISE -->
+  <section id="promise" class="promise">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow reveal">Our Promise</div>
+        <h2 class="reveal">The standards we refuse to compromise.</h2>
+        <p class="lead reveal">We believe exceptional hair begins with exceptional sourcing. Every bundle is selected and prepared with craftsmanship, integrity and uncompromising attention to detail.</p>
+      </div>
+      <ul class="reveal">
+        <li><span class="i">01</span>Single donor hair</li>
+        <li><span class="i">02</span>Naturally aligned cuticles</li>
+        <li><span class="i">03</span>Hand wefted</li>
+        <li><span class="i">04</span>Individually inspected</li>
+        <li><span class="i">05</span>Carefully preserved from source</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div id="contact" class="foot-cta">
+      <div class="eyebrow reveal">Get in Touch</div>
+      <h2 class="reveal">We&rsquo;d love to hear from you.</h2>
+      <p class="reveal">Questions about the collection, your order, or personalised guidance — our Customer Care team is here to help.</p>
+      <div class="field reveal">
+        <input type="email" aria-label="Email address" placeholder="Your email address">
+        <button type="button">Enquire</button>
+      </div>
+    </div>
+
+    <div class="foot-main">
+      <div class="wrap">
+        <div class="brandcol">
+          <div class="fb">EMS&rsquo; Hairline</div>
+          <p>Exceptional hair begins at the source.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Client Services</h4>
+          <a href="#">Client Services</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Returns &amp; Exchanges</a>
+          <a href="#">Refund Policy</a>
+        </div>
+        <div class="foot-col">
+          <h4>Information</h4>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#contact">Get in Touch</a>
+        </div>
+        <div class="foot-col">
+          <h4>Customer Care</h4>
+          <a href="mailto:hello@emshairline.com">hello@emshairline.com</a>
+          <span class="li">Mon–Fri · 9am–5pm GMT</span>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-base">
+      <div class="wrap">
+        <span>© 2026 EMS&rsquo; Hairline</span>
+        <span>Raw Vietnamese Hair · Worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
