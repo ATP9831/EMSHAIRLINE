@@ -6,7 +6,7 @@
 <title>EMS&rsquo; Hairline — Raw Vietnamese Hair</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#FCFBFA;
@@ -30,22 +30,14 @@
   h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12}
   .eyebrow{font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--smoke);font-weight:400}
 
-  /* announcement */
-  .announce{border-bottom:1px solid var(--line-soft)}
-  .announce .wrap{display:flex;justify-content:center;gap:2.5rem;padding:11px 48px;flex-wrap:wrap;
-    font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--smoke)}
-  .announce span{position:relative}
-  .announce span+span::before{content:"";position:absolute;left:-1.25rem;top:50%;width:2px;height:2px;
-    border-radius:50%;background:var(--smoke);transform:translateY(-50%)}
-
   /* header */
-  header{position:sticky;top:0;z-index:60;background:rgba(252,251,250,0.88);
-    backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+  header{position:sticky;top:0;z-index:60;background:#000;
+    border-bottom:1px solid rgba(252,251,250,0.12)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:26px;padding-bottom:26px}
-  .brand{font-family:var(--sans);font-weight:400;font-size:1.02rem;letter-spacing:.42em;text-transform:uppercase}
+  .brand{font-family:"Open Sans",var(--sans);font-weight:700;font-size:1.05rem;letter-spacing:.38em;text-transform:uppercase;color:var(--paper)}
   nav{display:flex;gap:2.4rem}
-  nav a{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;position:relative;padding-bottom:3px;color:var(--ink)}
-  nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--ink);transition:width .35s ease}
+  nav a{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;position:relative;padding-bottom:3px;color:var(--paper)}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--paper);transition:width .35s ease}
   nav a:hover::after,nav a:focus-visible::after{width:100%}
 
   /* hero */
@@ -54,10 +46,13 @@
       linear-gradient(180deg,rgba(252,251,250,0) 40%,rgba(252,251,250,0.55) 100%),
       radial-gradient(120% 120% at 68% 26%,#efede9 0%,#e4e1db 45%,#d7d3cc 100%);
     border-bottom:1px solid var(--line-soft);overflow:hidden}
-  .hero .htag{position:absolute;left:48px;top:40px;font-size:.6rem;letter-spacing:.34em;
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:transparent}
+  .hero-scrim{position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(252,251,250,0.05) 45%,rgba(252,251,250,0.62) 100%)}
+  .hero .htag{position:absolute;left:48px;top:40px;z-index:2;font-size:.6rem;letter-spacing:.34em;
     text-transform:uppercase;color:var(--smoke)}
 
-  .hero-inner{padding:0 48px 74px;max-width:1320px;margin:0 auto;width:100%}
+  .hero-inner{position:relative;z-index:2;padding:0 48px 74px;max-width:1320px;margin:0 auto;width:100%}
   .hero .eyebrow{margin-bottom:24px}
   .hero h1{font-size:clamp(2.8rem,6.4vw,5.6rem);letter-spacing:-0.005em}
   .hero p{font-family:var(--sans);font-size:.98rem;letter-spacing:.04em;margin-top:22px;color:#33322f;max-width:44ch}
@@ -143,7 +138,7 @@
 
   .foot-main .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
     padding-top:64px;padding-bottom:48px}
-  .foot-main .brandcol .fb{font-family:var(--sans);font-weight:400;font-size:1rem;letter-spacing:.38em;
+  .foot-main .brandcol .fb{font-family:"Open Sans",var(--sans);font-weight:700;font-size:1rem;letter-spacing:.38em;
     text-transform:uppercase}
   .foot-main .brandcol p{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#4a4a46;margin-top:16px;max-width:26ch}
   .foot-col h4{font-family:var(--sans);font-weight:400;font-size:.6rem;letter-spacing:.26em;
@@ -166,7 +161,7 @@
   /* responsive */
   @media(max-width:980px){
     .wrap,.hero-inner{padding-left:24px;padding-right:24px}
-    .announce .wrap,.standard .wrap,.promise .wrap,.foot-cta{padding-left:24px;padding-right:24px}
+    .standard .wrap,.promise .wrap,.foot-cta{padding-left:24px;padding-right:24px}
     nav{display:none}
     .hero .htag{left:24px;right:24px}
     .col-grid{grid-template-columns:1fr;gap:48px}
@@ -188,19 +183,12 @@
 </head>
 <body>
 
-  <div class="announce">
-    <div class="wrap">
-      <span>Worldwide shipping</span>
-      <span>Single donor · naturally preserved</span>
-      <span>Shipped via DHL, UPS &amp; FedEx</span>
-    </div>
-  </div>
-
   <header>
     <div class="wrap">
-      <div class="brand">EMS&rsquo; Hairline</div>
+      <div class="brand">EMS&rsquo; HAIRLINE</div>
       <nav>
-        <a href="#collection">Shop</a>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
         <a href="#standard">The Raw Standard</a>
         <a href="#craft">Craft</a>
         <a href="#promise">Our Promise</a>
@@ -211,9 +199,14 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- HERO VIDEO — upload a file named hero.mp4 to the repo (same place as index.html).
+         To go back to the plain background, delete this <video> and <div class="hero-scrim"> block. -->
+    <video class="hero-video" autoplay muted loop playsinline poster="hero-poster.jpg">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
     <span class="htag">The Signature Collection</span>
     <div class="hero-inner">
-      <div class="eyebrow reveal">EMS&rsquo; Hairline</div>
       <h1 class="reveal">Raw Vietnamese Hair</h1>
       <p class="reveal">Single donor. Naturally preserved. Crafted without compromise.</p>
       <a href="#collection" class="btn reveal">Explore the Collection</a>
@@ -229,19 +222,19 @@
         <p class="reveal">Three pieces, one standard — raw Vietnamese hair with naturally aligned cuticles, preserved from source.</p>
       </div>
       <div class="col-grid">
-        <a href="#" class="card reveal">
+        <a href="shop.html#bundle" class="card reveal">
           <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
           <h3>The Signature Bundle</h3>
           <p class="desc">Single donor raw Vietnamese hair — effortless movement, exceptional longevity, endlessly versatile.</p>
           <span class="view">View</span>
         </a>
-        <a href="#" class="card reveal">
+        <a href="shop.html#frontal" class="card reveal">
           <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
           <h3>The Signature HD Frontal</h3>
           <p class="desc">Ultra-thin HD lace and signature raw hair for a seamless, undetectable finish.</p>
           <span class="view">View</span>
         </a>
-        <a href="#" class="card reveal">
+        <a href="shop.html#closure" class="card reveal">
           <div class="shot"><div class="fill"></div><span class="plc">Campaign imagery</span></div>
           <h3>The Signature HD Closure</h3>
           <p class="desc">Understated luxury — HD lace with carefully selected raw hair and a beautifully natural finish.</p>
@@ -322,7 +315,7 @@
     <div class="foot-main">
       <div class="wrap">
         <div class="brandcol">
-          <div class="fb">EMS&rsquo; Hairline</div>
+          <div class="fb">EMS&rsquo; HAIRLINE</div>
           <p>Exceptional hair begins at the source.</p>
         </div>
         <div class="foot-col">
