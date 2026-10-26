@@ -905,6 +905,8 @@
   if(drawer){drawer.querySelectorAll('[data-close]').forEach(function(x){x.addEventListener('click',close);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!drawer.hidden)close();});}
   save();
+  /* open the bag when arriving from Shopify's basket icon (emshairline.com/#bag) */
+  if(location.hash==='#bag'){setTimeout(function(){open();try{history.replaceState(null,'',location.pathname+location.search);}catch(e){}},400);}
 })();
 </script>
 
