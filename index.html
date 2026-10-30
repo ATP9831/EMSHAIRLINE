@@ -489,6 +489,8 @@
 /* iPhone/iOS Safari only */
 @supports (-webkit-touch-callout:none){
   html{background:#0A0A0A}                         /* no white band above the hero / on pull-down */
+  body{background:#0A0A0A}                         /* newer Safari tints the status bar from the page colour */
+  #collection,#craft,#client-service,#information{background:var(--paper)} /* light sections keep their off-white */
   header .wrap{padding-top:calc(26px + env(safe-area-inset-top,0px))}
   .hero .htag{top:calc(40px + env(safe-area-inset-top,0px))}
   input,textarea,select,#ems-gate input,.cform input,.cform textarea{font-size:16px !important} /* stops Safari auto-zooming */
